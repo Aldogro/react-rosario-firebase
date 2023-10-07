@@ -1,5 +1,11 @@
+:root {
+  --bold: 700;
+  --dark: #333333;
+  --light: #ffffff;
+}
+
 body {
-  background-color: #333333;
+  background-color: var(--dark);
 }
 
 .app {
@@ -8,7 +14,28 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--light);
+}
+
+.links-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--light);
+}
+.links-wrapper .links-group {
+  display: flex;
+  gap: 30px;
+}
+.links-wrapper a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 20px;
+  font-weight: var(--bold);
+}
+
+.first-step {
+  color: var(--light);
 }
 
 h1, h2 {
@@ -17,4 +44,15 @@ h1, h2 {
 
 .image {
   width: 100%;
+}
+
+@media (max-width: 750px) {
+  .links-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .links-wrapper .links-group {
+    flex-direction: column;
+
+  }
 }
