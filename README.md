@@ -1,3 +1,12 @@
+# REACT ROSARIO
+## FIREBASE
+
+### Branches
+#### 01-project-set-up 
+Adding to our base react project Firebase, checking the presence of Auth, DB, Storage and Analitycs.
+We can see console.logs in the only page we have for now!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
