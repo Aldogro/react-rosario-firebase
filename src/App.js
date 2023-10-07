@@ -44,7 +44,12 @@ function App() {
         Setting up the project
       </h1>
       <h2>react-firebase-hooks Docs</h2>
-      <img className="image" alt="react-firebase-hooks-docs-qr" height={500} src={qrReactFirebaseHooksDocs} />
+      <img
+        src={qrReactFirebaseHooksDocs}
+        className="image"
+        alt="react-firebase-hooks-docs-qr"
+        height={500}
+      />
     </div>
   )
 }
