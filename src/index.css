@@ -49,6 +49,7 @@ code {
   max-width: var(--max-width);
   margin: 0px auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
