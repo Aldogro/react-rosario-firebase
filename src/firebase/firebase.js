@@ -14,7 +14,7 @@ const addDocToCollection = async (collectionName, doc) => {
     try {
         return await addDoc(collection(firestore, collectionName), doc);
     } catch (error) {
-        console.error(error)
+        throw new Error(error);
     }
 };
 

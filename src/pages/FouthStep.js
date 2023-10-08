@@ -19,6 +19,7 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 const FourthStep = () => {
     const [sortBy, setSortBy] = useState(sortByOptions.date_desc);
     const [taskToEdit, setTaskToEdit] = useState(null);
+    const [error, setError] = useState(null);
     const [value, loadingCollection, errorCollection] = useCollection(
         query(collection(firestore, 'tasks'), orderBy(sortBy[0], sortBy[1])),
         {
@@ -27,13 +28,14 @@ const FourthStep = () => {
     );
 
     const addTask = async (data) => {
-        const task = {
-            ...data,
-            createdAt: new Date().getTime(),
-        }
         try {
+            const task = {
+                ...data,
+                createdAt: new Date().getTime(),
+            }
             await addDocToCollection('tasks', task);
         } catch (error) {
+            setError(error)
             console.error(error);
         }
     };
@@ -77,7 +79,7 @@ const FourthStep = () => {
         { id: 'done_asc', label: 'By status, pending first'},
         { id: 'title_asc', label: 'By title, ascending'},
         { id: 'title_desc', label: 'By title, descending'},
-    ]
+    ];
 
     return (
         <div className="step">
@@ -115,6 +117,7 @@ const FourthStep = () => {
                     taskToEdit={taskToEdit}
                 />
                 <DisplayError error={errorCollection} />
+                <DisplayError error={error} onClick={() => setError(null)} />
             </div>
         </div>
     );

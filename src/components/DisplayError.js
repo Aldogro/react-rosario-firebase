@@ -1,8 +1,8 @@
-const DisplayError = ({ error }) => {
+const DisplayError = ({ error, onClick }) => {
     return (
         <>
             {error && (
-                <div className="section section-danger">
+                <div className="section section-danger" onClick={onClick}>
                     {error.message}
                 </div>
             )}
