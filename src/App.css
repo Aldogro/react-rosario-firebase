@@ -1,13 +1,3 @@
-:root {
-  --bold: 700;
-  --dark: #333333;
-  --light: #ffffff;
-}
-
-body {
-  background-color: var(--dark);
-}
-
 .app {
   height: 100vh;
   display: flex;
@@ -17,11 +7,16 @@ body {
   color: var(--light);
 }
 
+.nav-bar {
+  background-color: var(--light);
+  padding: 20px;
+}
+
 .links-wrapper {
+  margin: 0px auto;
+  max-width: var(--max-width);
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: var(--light);
 }
 .links-wrapper .links-group {
   display: flex;

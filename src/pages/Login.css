@@ -1,0 +1,30 @@
+.login-container {
+    margin: 0px auto;
+    text-align: center;
+    max-width: var(--max-width);
+    padding: 40px 0px;
+}
+
+.login-container a {
+    display: inline-block;
+    border-radius: 12px;
+    background-color: var(--primary);
+    padding: 20px;
+    margin: 20px 0px;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--primary);
+    padding: 20px;
+}
+
+.section-danger {
+    background-color: var(--danger-transparent);
+}
+
+.section button:hover {
+    opacity: 0.8;
+}

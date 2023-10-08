@@ -1,5 +1,18 @@
+:root {
+  --bold: 700;
+  --danger-transparent: #ff634744;
+  --danger: #ff6347;
+  --dark: #333333;
+  --light: #ffffff;
+  --max-width: 1200px;
+  --primary: #754bbf;
+  --primary-transparent: #754bbf33;
+}
+
 body {
+  color: var(--light);
   margin: 0;
+  background-color: var(--dark);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +20,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: var(--bold);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.step ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.divider {
+  border-bottom: 2px solid var(--primary);
+}
+
+.content {
+  padding-top: 40px;
+  max-width: var(--max-width);
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  min-width: 280px;
+  text-align: center;
+  background: var(--light);
+  color: var(--dark);
+  font-weight: var(--bold);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  padding: 20px;
+}
+
+.button-danger {
+  background-color: var(--danger);
+  color: var(--light);
 }
