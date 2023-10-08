@@ -8,8 +8,10 @@ import {
     useCreateUserWithEmailAndPassword,
     useSignOut
 } from 'react-firebase-hooks/auth';
+import DisplayError from '../components/DisplayError';
 
 import './Login.css';
+import SectionCard from '../components/SectionCard';
 
 const LoginPage = () => {
     const [loggedUser] = useAuthState(auth)
@@ -23,7 +25,7 @@ const LoginPage = () => {
         loadingSignInWithEmail,
         signInWithEmailError,
     ] = useSignInWithEmailAndPassword(auth)
-    const [signOut, loadingSignOut, signOuterror] = useSignOut(auth);
+    const [signOut, loadingSignOut, signOutError] = useSignOut(auth);
     const [deleteUser, loadingDeleteUser, deleteUserError] = useDeleteUser(auth);
     const [
         createUserWithEmailAndPassword,
@@ -54,9 +56,7 @@ const LoginPage = () => {
             <a href="https://github.com/CSFrequency/react-firebase-hooks/tree/master/auth">
                 Link to react-firebase-hooks auth documentation
             </a>
-            <h3>Create User</h3>
-            <p><b>Email:</b> {email}, <b>Password:</b> {password}</p>
-            <div className="section">
+            <SectionCard title={<h3>Create User</h3>} subtitle={<p><b>Email:</b> {email}, <b>Password:</b> {password}</p>}>
                 <button
                     className="button"
                     disabled={createUserLoading}
@@ -64,16 +64,11 @@ const LoginPage = () => {
                 >
                     Create User with E-mail and Password
                 </button>
-            </div>
-            {createUserError && (
-                <div className="section section-danger">
-                    {createUserError.message}
-                </div>
-            )}
+            </SectionCard>
+            <DisplayError error={createUserError} />
             {!loggedUser && (
                 <>
-                    <h3>Login Methods</h3>
-                    <div className="section">
+                    <SectionCard title={<h3>Login Methods</h3>}>
                         <button
                             className="button"
                             disabled={loadingSignInWithGoogle}
@@ -88,24 +83,15 @@ const LoginPage = () => {
                         >
                             Login with E-mail and Password
                         </button>
-                    </div>
-                    {signInWithGoogleError && (
-                        <div className="section section-danger">
-                            {signInWithGoogleError.message}
-                        </div>
-                    )}
-                    {signInWithEmailError && (
-                        <div className="section section-danger">
-                            {signInWithEmailError.message}
-                        </div>
-                    )}
+                    </SectionCard>
+                    <DisplayError error={signInWithGoogleError} />
+                    <DisplayError error={signInWithEmailError} />
                 </>
             )}
 
             {loggedUser && (
                 <>
-                    <h3>Logout Method</h3>
-                    <div className="section">
+                    <SectionCard title={<h3>Logout Method</h3>}>
                         <button
                             className="button"
                             onClick={async () => await signOut()}
@@ -113,14 +99,9 @@ const LoginPage = () => {
                         >
                             Sign out
                         </button>
-                    </div>
-                    {signOuterror && (
-                        <div className="section section-danger">
-                            {signOuterror.message}
-                        </div>
-                    )}
-                    <h3>Remove User from Firebase</h3>
-                    <div className="section section-danger">
+                    </SectionCard>
+                    <DisplayError error={signOutError} />
+                    <SectionCard title={<h3>Remove User from Firebase</h3>} variant="section-danger">
                         {
                             confirmDeleteUser ? (
                                 <>
@@ -152,12 +133,8 @@ const LoginPage = () => {
                                 </button>
                             )
                         }
-                    </div>
-                    {deleteUserError && (
-                        <div className="section section-danger">
-                            {deleteUserError.message}
-                        </div>
-                    )}
+                    </SectionCard>
+                    <DisplayError error={deleteUserError} />
                 </>
             )}
         </div>

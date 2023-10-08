@@ -1,0 +1,54 @@
+.tasks-form {
+    width: 60%;
+    margin: 0px auto;
+}
+
+.tasks-form fieldset {
+    border: 3px solid var(--primary);
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-wrapper input {
+    font-size: 20px;
+    border: none;
+    padding: 12px;
+}
+
+.form-wrapper textarea {
+    font-size: 20px;
+    padding: 12px;
+    min-height: 100px;
+    border: none;
+    width: 100%;
+    resize: vertical;
+}
+
+.form-wrapper button {
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    color: var(--light);
+    padding: 12px;
+    background: var(--primary);
+}
+.form-wrapper button:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+.form-wrapper .checkbox {
+    font-size: 20px;
+    line-height: 22px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+.form-wrapper .checkbox input {
+    height: 30px;
+    width: 30px;
+    clip-path: circle(46% at 50% 50%);
+}

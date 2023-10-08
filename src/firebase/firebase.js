@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection } from 'firebase/firestore';
+import { getFirestore, collection, doc, updateDoc, deleteDoc, addDoc, query, orderBy } from 'firebase/firestore';
 import { getStorage, ref as storageRef } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 import firebaseConfig from './firebase-config';
@@ -7,13 +7,37 @@ import firebaseConfig from './firebase-config';
 export const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
-const db = getFirestore(app)
+const firestore = getFirestore(app)
 const storage = getStorage(app);
+
+const addDocToCollection = async (collectionName, doc) => {
+    try {
+        return await addDoc(collection(firestore, collectionName), doc);
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+const sortByOptions = {
+    date_desc: ['createdAt', 'desc'],
+    date_asc: ['createdAt', 'asc'],
+    done_desc: ['done', 'desc'],
+    done_asc: ['done', 'asc'],
+    title_desc: ['title', 'desc'],
+    title_asc: ['title', 'asc'],
+};
 
 export {
     auth,
-    db,
+    addDocToCollection,
+    firestore,
     collection,
+    deleteDoc,
+    doc,
+    orderBy,
+    query,
+    sortByOptions,
     storage,
     storageRef,
+    updateDoc,
 };

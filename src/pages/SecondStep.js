@@ -1,9 +1,9 @@
+import Header from "../components/Header";
+
 const SecondStep = () => {
     return (
         <div className="step">
-            <h1>Order Stuff</h1>
-            <h2><b>BRANCH:</b> 02-order-firebase-stuff</h2>
-            <div className="divider"></div>
+            <Header title="Order Stuff" branchName="02-order-firebase-stuff" />
             <div className="content">
                 <ul>
                     <li>Separate Firebase config from APP</li>
