@@ -1,6 +1,6 @@
 import { auth } from './firebase/firebase';
 import { useAuthState} from 'react-firebase-hooks/auth';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { Navigate, NavLink, Routes, Route } from 'react-router-dom';
 import FirstStep from './pages/FirstStep';
 import SecondStep from './pages/SecondStep';
 import ThirdStep from './pages/ThirdStep';
@@ -56,7 +56,7 @@ const Main = () => {
                 </div>
             </div>
             <Routes>
-                <Route path="/" element={<FirstStep />} />
+                <Route path="/" element={<Navigate to="/first-step" />} />
                 <Route path="/first-step" element={<FirstStep />} />
                 <Route path="/second-step" element={<SecondStep />} />
                 <Route path="/third-step" element={<ThirdStep />} />
