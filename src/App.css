@@ -9,7 +9,6 @@
 
 .nav-bar {
   background-color: var(--light);
-  padding: 20px;
 }
 
 .links-wrapper {
@@ -22,7 +21,12 @@
   display: flex;
   gap: 30px;
 }
+.links-wrapper .links-group .active {
+  color: var(--light);
+  background: var(--dark);
+}
 .links-wrapper a {
+  padding: 20px;
   text-decoration: none;
   color: var(--dark);
   font-size: 20px;
@@ -48,6 +52,6 @@ h1, h2 {
   }
   .links-wrapper .links-group {
     flex-direction: column;
-
+    gap: 0px;
   }
 }

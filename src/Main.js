@@ -1,6 +1,6 @@
 import { auth } from './firebase/firebase';
 import { useAuthState} from 'react-firebase-hooks/auth';
-import { Link, Routes, Route } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import FirstStep from './pages/FirstStep';
 import SecondStep from './pages/SecondStep';
 import ThirdStep from './pages/ThirdStep';
@@ -14,20 +14,49 @@ const Main = () => {
             <div className="nav-bar">
                 <div className="links-wrapper">
                     <div className="links-group">
-                        <Link to="/first-step">First Step</Link>
-                        <Link to="/second-step">Second Step</Link>
-                        <Link to="/third-step">Third Step</Link>
-                        <Link to="/fourth-step">Fourth Step</Link>
-                        <Link to="/fifth-step">Fifth Step</Link>
+                        <NavLink
+                            to="/first-step"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
+                            First Step
+                        </NavLink>
+                        <NavLink
+                            to="/second-step"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
+                            Second Step
+                        </NavLink>
+                        <NavLink
+                            to="/third-step"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
+                            Third Step
+                        </NavLink>
+                        <NavLink
+                            to="/fourth-step"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
+                            Fourth Step
+                        </NavLink>
+                        <NavLink
+                            to="/fifth-step"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
+                            Fifth Step
+                        </NavLink>
                     </div>
                     <div className="links-group">
-                        <Link to="/login">
+                        <NavLink
+                            to="/login"
+                            className={({ isActive }) => isActive ? "active" : ""}
+                        >
                             {loggedUser ? (loggedUser.displayName || loggedUser.email) : 'Login'}
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </div>
             <Routes>
+                <Route path="/" element={<FirstStep />} />
                 <Route path="/first-step" element={<FirstStep />} />
                 <Route path="/second-step" element={<SecondStep />} />
                 <Route path="/third-step" element={<ThirdStep />} />
