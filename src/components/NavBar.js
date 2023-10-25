@@ -33,12 +33,6 @@ const NavBar = () => {
                     >
                         Fourth Step
                     </NavLink>
-                    <NavLink
-                        to="/fifth-step"
-                        className={({ isActive }) => isActive ? "active" : ""}
-                    >
-                        Fifth Step
-                    </NavLink>
                 </div>
                 <div className="links-group">
                     <NavLink

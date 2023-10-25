@@ -11,12 +11,11 @@ const Main = () => {
         <div>
             <NavBar />
             <Routes>
-                <Route path="/" element={<Navigate to="/first-step" />} />
+                <Route path="/" element={<Navigate to="/fourth-step" />} />
                 <Route path="/first-step" element={<FirstStep />} />
                 <Route path="/second-step" element={<SecondStep />} />
                 <Route path="/third-step" element={<ThirdStep />} />
                 <Route path="/fourth-step" element={<FourthStep />} />
-                <Route path="/fifth-step" element={<FirstStep />} />
                 <Route path="/login" element={<LoginPage />} />
             </Routes>
         </div>
