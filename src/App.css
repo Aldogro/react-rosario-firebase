@@ -91,6 +91,26 @@
   color: var(--done);
 }
 
+.images-list {
+  max-width: var(--max-width);
+  margin: 30px auto;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.images-list .image-card {
+  background-color: var(--light);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.images-list img {
+  width: 100%;
+  object-fit: cover;
+}
+
 h1, h2 {
   text-align: center;
 }

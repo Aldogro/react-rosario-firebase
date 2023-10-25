@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, updateDoc, deleteDoc, addDoc, query, orderBy } from 'firebase/firestore';
-import { getStorage, ref as storageRef } from 'firebase/storage';
+import { deleteObject, getStorage, listAll, ref as storageRef } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 import firebaseConfig from './firebase-config';
 
@@ -38,6 +38,8 @@ export {
     query,
     sortByOptions,
     storage,
+    listAll,
     storageRef,
+    deleteObject,
     updateDoc,
 };

@@ -79,6 +79,21 @@ code {
   border: none;
   padding: 20px;
 }
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.button:hover {
+  opacity: 0.9;
+}
+input::file-selector-button {
+  font-weight: var(--bold);
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 12px;
+  margin-right: 20px;
+  border: none;
+}
 
 .button-danger {
   background-color: var(--danger);
