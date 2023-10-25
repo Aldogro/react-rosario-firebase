@@ -4,6 +4,7 @@
   --danger: #ff6347;
   --done: #87FF47;
   --dark: #333333;
+  --gray: #999999;
   --light: #ffffff;
   --max-width: 1200px;
   --primary: #754bbf;
@@ -68,7 +69,7 @@ code {
 }
 
 .button {
-  min-width: 280px;
+  min-width: 160px;
   text-align: center;
   background: var(--light);
   color: var(--dark);
@@ -97,5 +98,9 @@ input::file-selector-button {
 
 .button-danger {
   background-color: var(--danger);
+  color: var(--light);
+}
+.button-cancel {
+  background-color: var(--gray);
   color: var(--light);
 }

@@ -119,6 +119,12 @@ h1, h2 {
   width: 100%;
 }
 
+.buttons-container {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
 @media (max-width: 750px) {
   .links-wrapper {
     flex-direction: column;
