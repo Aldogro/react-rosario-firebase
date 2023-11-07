@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import firebaseConfig from './firebase-config'
 import { getFirestore, collection } from 'firebase/firestore';
-import qrReactFirebaseHooksDocs from './assets/qr-react-firebase-hooks-docs.svg'
+import qrReactFirebaseHooksDocs from './assets/qr-react-firebase-hooks-docs.svg';
+import qrProject from './assets/project-qr.svg';
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
@@ -21,6 +23,7 @@ const storage = getStorage(app);
 
 function App() {
   const [user] = useAuthState(auth)
+  const [openQR, setOpenQR] = useState('');
 
   const [dbValues, dbLoading, dbError] = useCollection(
     collection(db, 'react-rosario')
@@ -43,13 +46,38 @@ function App() {
       <h1>
         Setting up the project
       </h1>
-      <h2>react-firebase-hooks Docs</h2>
-      <img
-        src={qrReactFirebaseHooksDocs}
-        className="image"
-        alt="react-firebase-hooks-docs-qr"
-        height={500}
-      />
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <button onClick={() => setOpenQR('react-firebase-hooks-qr')}>
+          QR react-firebase-hooks
+        </button>
+        <button onClick={() => setOpenQR('project-qr')}>
+          Deployed Project
+        </button>
+      </div>
+      <dialog open={openQR === 'react-firebase-hooks-qr'}>
+        <h2>react-firebase-hooks Docs</h2>
+        <img
+          src={qrReactFirebaseHooksDocs}
+          className="image"
+          alt="react-firebase-hooks-docs-qr"
+          height={500}
+        />
+        <form method="dialog">
+          <button onClick={() => setOpenQR('')}>Close</button>
+        </form>
+      </dialog>
+      <dialog open={openQR === 'project-qr'}>
+        <h2>Link to the deployed project</h2>
+        <img
+          src={qrProject}
+          className="image"
+          alt="react-firebase-hooks-docs-qr"
+          height={500}
+        />
+        <form method="dialog">
+          <button onClick={() => setOpenQR('')}>Close</button>
+        </form>
+      </dialog>
     </div>
   )
 }
