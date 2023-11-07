@@ -26,7 +26,7 @@ function App() {
     collection(db, 'react-rosario')
   );
 
-  const [files, loadingFiles, errorFiles] = useDownloadURL(storageRef(storage, 'images/add-new-circular-filled.svg'));
+  const [files, loadingFiles, errorFiles] = useDownloadURL(storageRef(storage, 'images/40 AÑOS DE PRÁCTICA.png'));
 
   console.log('USER', user)
   
