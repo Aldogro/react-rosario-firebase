@@ -4,7 +4,8 @@ import { getAnalytics } from "firebase/analytics";
 import firebaseConfig from './firebase-config'
 import { getFirestore, collection } from 'firebase/firestore';
 import qrReactFirebaseHooksDocs from './assets/qr-react-firebase-hooks-docs.svg';
-import qrProject from './assets/project-qr.svg';
+import qrProject from './assets/qr-project.svg';
+import qrRepo from './assets/qr-repo.svg';
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
@@ -47,14 +48,17 @@ function App() {
         Setting up the project
       </h1>
       <div style={{ display: 'flex', gap: '8px' }}>
-        <button onClick={() => setOpenQR('react-firebase-hooks-qr')}>
+        <button onClick={() => setOpenQR('qr-react-firebase-hooks')}>
           QR react-firebase-hooks
         </button>
-        <button onClick={() => setOpenQR('project-qr')}>
+        <button onClick={() => setOpenQR('qr-project')}>
           Deployed Project
         </button>
+        <button onClick={() => setOpenQR('qr-repo')}>
+          Repo
+        </button>
       </div>
-      <dialog open={openQR === 'react-firebase-hooks-qr'}>
+      <dialog open={openQR === 'qr-react-firebase-hooks'}>
         <h2>react-firebase-hooks Docs</h2>
         <img
           src={qrReactFirebaseHooksDocs}
@@ -66,12 +70,24 @@ function App() {
           <button onClick={() => setOpenQR('')}>Close</button>
         </form>
       </dialog>
-      <dialog open={openQR === 'project-qr'}>
+      <dialog open={openQR === 'qr-project'}>
         <h2>Link to the deployed project</h2>
         <img
           src={qrProject}
           className="image"
           alt="react-firebase-hooks-docs-qr"
+          height={500}
+        />
+        <form method="dialog">
+          <button onClick={() => setOpenQR('')}>Close</button>
+        </form>
+      </dialog>
+      <dialog open={openQR === 'qr-repo'}>
+        <h2>Link to Github Repo</h2>
+        <img
+          src={qrRepo}
+          className="image"
+          alt="repo-qr"
           height={500}
         />
         <form method="dialog">
