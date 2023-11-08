@@ -9,6 +9,14 @@ We can see console.logs in the only page we have for now!
 #### 02-order-firebase-stuff
 With our firebase code in place, let's separate everything from the App component
 
+#### 03-firebase-auth
+How to quickly make an auth with email and password or with Google
+
+#### 04-firebase-firestore
+Adding some tasks to our little app, using in a few lines Firebase's non-relational db called Firestore
+
+#### 05-firebase-storage
+We all need some storage for docs, pictures, etc. Set up a storage.
 
 _________________________________________________________________________________________________________
 # Getting Started with Create React App
